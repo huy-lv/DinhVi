@@ -12,17 +12,18 @@ import java.util.ArrayList;
 
 import thesis.hcmut.dinhvi.R;
 import thesis.hcmut.dinhvi.model.Wifi;
+import thesis.hcmut.dinhvi.utils.Utils;
 
 /**
  * Created by huylv on 06-Apr-16.
  */
-public class APAdapter extends RecyclerView.Adapter<APAdapter.APViewHolder> {
+public class SelectedAdapter extends RecyclerView.Adapter<SelectedAdapter.APViewHolder> {
 
     ArrayList<Wifi> apList;
     Context context;
     DecimalFormat numberFormat;
 
-    public APAdapter(Context c, ArrayList<Wifi> aps){
+    public SelectedAdapter(Context c, ArrayList<Wifi> aps){
         apList= aps;
         context = c;
         numberFormat = new DecimalFormat("#.00");
@@ -30,7 +31,7 @@ public class APAdapter extends RecyclerView.Adapter<APAdapter.APViewHolder> {
 
     @Override
     public APViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_calculate_wifi, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_selected_wifi, parent, false);
         return new APViewHolder(v);
     }
 
@@ -39,10 +40,21 @@ public class APAdapter extends RecyclerView.Adapter<APAdapter.APViewHolder> {
         final Wifi wifi = apList.get(position);
         holder.item_calculate_wifi_name.setText(wifi.getSSID());
         holder.item_calculate_wifi_level.setText(wifi.getLevel() + "dBm");
-        if(wifi.getDistance() != 0) {
-            holder.item_calculate_wifi_distance.setText(numberFormat.format(wifi.getDistance()) + "m");
+        if(wifi.distance != 0) {
+            holder.item_calculate_wifi_distance.setText(numberFormat.format(wifi.distance) + "m");
         }else{
             holder.item_calculate_wifi_distance.setText("N/A");
+        }
+        for(Wifi w: Utils.savedWifiList){
+            if(w.getSSID().equals(wifi.getSSID())){
+                wifi.x = w.x;
+                wifi.y = w.y;
+                wifi.z = w.z;
+                holder.item_calculate_wifi_position.setText("x="+wifi.x + "\ny="+wifi.y);
+            }
+        }
+        if(wifi.x != 0) {
+
         }
     }
 
@@ -55,11 +67,13 @@ public class APAdapter extends RecyclerView.Adapter<APAdapter.APViewHolder> {
         TextView item_calculate_wifi_name;
         TextView item_calculate_wifi_level;
         TextView item_calculate_wifi_distance;
+        TextView item_calculate_wifi_position;
         public APViewHolder(View itemView) {
             super(itemView);
             item_calculate_wifi_name = (TextView)itemView.findViewById(R.id.item_calculate_wifi_name);
             item_calculate_wifi_level =(TextView)itemView.findViewById(R.id.item_calculate_wifi_level);
             item_calculate_wifi_distance = (TextView)itemView.findViewById(R.id.item_calculate_wifi_distance);
+            item_calculate_wifi_position = (TextView)itemView.findViewById(R.id.item_calculate_wifi_position);
         }
     }
 }

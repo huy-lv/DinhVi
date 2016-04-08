@@ -83,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
         }else{
             //add data manual
             ArrayList<Wifi> wifis = new ArrayList<>();
-            wifis.add(new Wifi("P501",18,0.2,0));
-            wifis.add(new Wifi("P502",0.2,0.2,0));
-            wifis.add(new Wifi("P503",18,11.4,0));
+            wifis.add(new Wifi("DIS Office",18,0.2,0));
+            wifis.add(new Wifi("DIS Office3",0.2,0.2,0));
+            wifis.add(new Wifi("DIS Office2",18,11.4,0));
             wifis.add(new Wifi("P.504",0.2,11.6,0));
             wifis.add(new Wifi("P.0505",18,11.8,0));
             Utils.savedWifiList.addAll(wifis);

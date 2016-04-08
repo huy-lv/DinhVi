@@ -54,7 +54,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:gravity="center_horizontal"
+        android:weightSum="2"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,10 +64,18 @@
         android:id="@+id/linearLayout3">
 
         <Button
+            android:id="@+id/calculate_calculate_bt"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Calculate position"/>
+        <Button
+            android:layout_weight="1"
             android:id="@+id/calculate_setting"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Setting"/>
+
     </LinearLayout>
 
 </RelativeLayout>

@@ -6,7 +6,7 @@ package thesis.hcmut.dinhvi.model;
 public class Wifi {
     String SSID;
     int level;
-    double distance;
+    public double distance;
     public double x;
     public double y;
     public double z;
@@ -53,11 +53,4 @@ public class Wifi {
         this.SSID = SSID;
     }
 
-    public double getDistance() {
-        return distance;
-    }
-
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
 }
