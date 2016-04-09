@@ -21,25 +21,18 @@ public class SavedWifiAdapter extends RecyclerView.Adapter<SavedWifiAdapter.Save
     ArrayList<Wifi> savedWifiList;
     Context context;
     DecimalFormat numberFormat;
-    ArrayList<SavedWifiViewHolder> savedWifiViewHolders;
 
     public SavedWifiAdapter(Context c, ArrayList<Wifi> aps) {
         savedWifiList = aps;
         context = c;
         numberFormat = new DecimalFormat("#.00");
-        savedWifiViewHolders = new ArrayList<SavedWifiViewHolder>();
     }
 
-    public SavedWifiViewHolder getViewAt(int position){
-        return savedWifiViewHolders.get(position);
-    }
 
     @Override
     public SavedWifiViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_wifi_setting, parent, false);
-        SavedWifiViewHolder savedWifiViewHolder = new SavedWifiViewHolder(v);
-        savedWifiViewHolders.add(savedWifiViewHolder);
-        return savedWifiViewHolder;
+        return new SavedWifiViewHolder(v);
     }
 
     @Override
@@ -49,6 +42,17 @@ public class SavedWifiAdapter extends RecyclerView.Adapter<SavedWifiAdapter.Save
         holder.item_saved_wifi_x.setText(String.valueOf(wifi.x));
         holder.item_saved_wifi_y.setText(String.valueOf(wifi.y));
         holder.item_saved_wifi_z.setText(String.valueOf(wifi.z));
+
+ /*       holder.item_setting_save_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!holder.EDITTING){
+
+                }else{
+
+                }
+            }
+        });*/
     }
 
     @Override
@@ -61,7 +65,6 @@ public class SavedWifiAdapter extends RecyclerView.Adapter<SavedWifiAdapter.Save
         public EditText item_saved_wifi_x;
         public EditText item_saved_wifi_y;
         public EditText item_saved_wifi_z;
-
         public SavedWifiViewHolder(View itemView) {
             super(itemView);
             item_saved_wifi_name = (EditText) itemView.findViewById(R.id.item_saved_wifi_name);

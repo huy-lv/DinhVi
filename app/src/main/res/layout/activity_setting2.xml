@@ -8,16 +8,19 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbar"/>
-    <ListView
-        android:id="@+id/setting_listview_saved_wifi"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_above="@+id/linearLayout6">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/linearLayoutList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </ListView>
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:gravity="center"
@@ -28,7 +31,7 @@
         android:layout_alignParentStart="true"
         android:id="@+id/linearLayout6">
         <Button
-            android:id="@+id/item_setting_save_bt"
+            android:id="@+id/setting_save_bt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Save"/>

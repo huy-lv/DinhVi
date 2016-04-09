@@ -66,6 +66,12 @@ public class CalculateActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        apAdapter.notifyDataSetChanged();
+    }
+
     private void calculatePosition(ArrayList<Wifi> filteredWifiList) {
         if(checkCorrectAP()){
             if(filteredWifiList.size()== 3) {
@@ -84,11 +90,11 @@ public class CalculateActivity extends AppCompatActivity {
                 calculate_x_value.setText("x = " + resultX);
                 calculate_y_value.setText("y = " + resultY);
             }else{
-                Toast.makeText(this,"Selected wifis must be 3 wifis",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"You must select 3 APs",Toast.LENGTH_SHORT).show();
             }
         }else{
-            Toast.makeText(this,"Selected APs are not correct",Toast.LENGTH_SHORT).show();
-        }
+            Toast.makeText(this,"Selected APs doesn't have data",Toast.LENGTH_SHORT).show();
+    }
     }
 
     private boolean checkCorrectAP() {

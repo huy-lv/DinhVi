@@ -86,8 +86,16 @@ public class MainActivity extends AppCompatActivity {
             wifis.add(new Wifi("DIS Office",18,0.2,0));
             wifis.add(new Wifi("DIS Office3",0.2,0.2,0));
             wifis.add(new Wifi("DIS Office2",18,11.4,0));
-            wifis.add(new Wifi("P.504",0.2,11.6,0));
-            wifis.add(new Wifi("P.0505",18,11.8,0));
+            wifis.add(new Wifi("P.504",0.2,11.6,0));//1 //11
+            wifis.add(new Wifi("P.0505",18,11.8,0));//2 //5
+            wifis.add(new Wifi("P.0506",19,11.8,0));//3 //
+            wifis.add(new Wifi("P.0507",20,11.8,0));//4
+            wifis.add(new Wifi("P.0508",21,11.8,0));//5
+            wifis.add(new Wifi("P.0509",22,11.8,0));//6
+            wifis.add(new Wifi("P.05010",23,11.8,0));//7
+            wifis.add(new Wifi("P.05011",24,11.8,0));//8
+            wifis.add(new Wifi("P.05012",25,11.8,0));//9
+            wifis.add(new Wifi("P.05013",26,11.8,0));//10
             Utils.savedWifiList.addAll(wifis);
         }
 
